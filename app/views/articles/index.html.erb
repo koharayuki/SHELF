@@ -1,2 +1,91 @@
-<h1>Articles#index</h1>
-<p>Find me in app/views/articles/index.html.erb</p>
+<div class='main'>
+  <%# 画面上部の「気になる記事はSHELFへ保管！」帯部分 %>
+  <div class='title-contents'>
+    <h2 class='service-title'>
+      気になる記事はSHELFへ保管！
+    </h2>
+    <p class='service-explain'>
+      ジャンルに分けて保管して見たい時にいつでも見れる
+    </p>
+    <p class='service-explain'>
+      自分だけのSHELFを作ろう！
+    </p>
+  </div>
+  <%# /画面上部の「気になる記事はSHELFへ保管！」帯部分  %>
+
+  <%# SHELFの特徴 %>
+  <div class='feature-contents'>
+    <h2 class='title'>
+      SHELFの特徴
+    </h2>
+    <ul class='feature-lists'>
+      <li class='list'>
+        <%= image_tag "shelf-intro01", class:"list-pict" %>
+        <h3 class='feature-list-text'>
+          色々な情報を整理
+        </h3>
+        <p class='feature-list-description'>
+          気になる情報だけを保存できる！
+        </p>
+      </li>
+      <li class='list'>
+        <%= image_tag "shelf-intro02", class:"list-pict" %>
+        <h3 class='feature-list-text'>
+          管理も楽チン
+        </h3>
+        <p class='feature-list-description'>
+          スマホひとつで、いつでもどこでも確認可能！
+        </p>
+      </li>
+      <li class='list'>
+        <%= image_tag "shelf-intro03", class:"list-pict" %>
+        <h3 class='feature-list-text'>
+          記事を共有できる
+        </h3>
+        <p class='feature-list-description'>
+          フォロー機能でユーザー同士も簡単に繋がれる！
+        </p>
+      </li>
+    </ul>
+  </div>
+  <%# SHELFの特徴 %>
+
+
+  <%# 記事一覧 %>
+  <div class='item-contents'>
+    <h2 class='title'>ピックアップカテゴリー</h2>
+    <div class="subtitle" >
+      新規投稿記事
+    </div>
+    <ul class='article-lists'>
+      <%# <% @articles.each do |article| %> %>
+      <li class='list'>
+       <%# <%= link_to _path(article.id) do %> %>
+        <div class='article-img-content'>
+          <%# <%= image_tag article.image, class: "article-img" %> %>
+
+        </div>
+        <div class='article-info'>
+          <h3 class='article-title'>
+            <%# <%= article.title %> %>
+          </h3>
+          <div class='article-url'>
+            <%# <span><%= article.url %><br><%= '#' %></span> %>
+            <div class='star-btn'>
+              <%# <%= image_tag "star.png", class:"star-icon" %> %>
+              <span class='star-count'>0</span>
+            </div>
+          </div>
+        </div>
+        <%# <% end %> %>
+      </li>
+      <%# <% end %> %>
+    </ul>
+  </div>
+  <%# 記事一覧 %>
+</div>
+<%# <%= link_to new_article_path, class: 'writing-btn' do %> %>
+  <span class='purchase-btn-text'>投稿する</span>
+  <%= image_tag 'icon_writing.png' , size: '185x50' ,class: "writing-btn-icon" %>
+<%# <% end %> %>
+<%= render "shared/footer" %>
