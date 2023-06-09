@@ -1,0 +1,6 @@
+
+
+@user = FactoryBot.build(:user)
+
+
+@user.errors.full_messages
