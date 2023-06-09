@@ -32,67 +32,72 @@ Things you may want to cover:
 | ------------------ | ---------- | ------------------------------ |
 | nickname           | string     | null: false                    |
 | email              | string     | null: false, unique: true      |
+| password           | string     | null: false                    |
 | encrypted_password | string     | null: false                    |
-| last_name          | string     | null: false                    |
-| first_name         | string     | null: false                    |
-| suv_last_name      | string     | null: false                    |
-| suv_first_name     | string     | null: false                    |
-| date_of_birth      | date       | null: false                    |
+| favorite_genre_id  | integer    | null: false                    |
 
 
 ### Association
 
-- has_many :items
-- has_many :orders
+- has_many :follows
+- has_many :articles
+- has_many :favorites
 
 
-## itemsテーブル
+## articlesテーブル
 
 |  Column            |  Type      |  Options                       |
 | ------------------ | ---------- | ------------------------------ |
 | title              | string     | null: false                    |
-| content            | text       | null: false                    |
-| category_id        | integer    | null: false                    |
-| status_id          | integer    | null: false                    |
-| delivery_charge_id | integer    | null: false                    |
-| shipping_origin_id | integer    | null: false                    |
-| date_of_shipment_id| integer    | null: false                    |
-| price              | integer    | null: false                    |
+| text               | text       | null: false                    |
+| genre_id           | integer    | null: false                    |
+| URL                | text       | null: false                    |
 | user               | references | null: false, foreign_key: true |
 
 ### Association
 
-- has_one :order
+- has_many :favorites
+- has_many :categories
 - belongs_to :user
 
 
 
-## ordersテーブル
+## favoritesテーブル
 
 |  Column            |  Type      |  Options                       |
 | ------------------ | ---------- | ------------------------------ |
-| item               | references | null: false, foreign_key: true |
 | user               | references | null: false, foreign_key: true |
+| article            | references | null: false, foreign_key: true |
+
 
 ### Association
 
 - belongs_to :user
-- belongs_to :item
-- has_one :delivery
+- belongs_to :article
 
 
-## deliveriesテーブル
+## followsテーブル
 
 |  Column            |  Type      |  Options                       |
 | ------------------ | ---------- | ------------------------------ |
-| post_code          | string     | null: false                    |
-| shipping_origin_id | integer    | null: false                    |
-| city               | string     | null: false                    |
-| brock              | string     | null: false                    |
-| building           | string     |                                |
-| phone_number       | string     | null: false                    |
-| order              | references | null: false, foreign_key: true |
+| follower           | references | null: false, foreign_key: true |
+| following          | references | null: false, foreign_key: true |
+
 
 ### Association
 
-- belongs_to :order
+- belongs_to :following, class_name: "User"
+- belongs_to :follower, class_name: "User"
+
+
+## categoriesテーブル
+
+|  Column            |  Type      |  Options                       |
+| ------------------ | ---------- | ------------------------------ |
+| genre              | string     |                                |
+
+
+### Association
+
+- belongs_to :article
+

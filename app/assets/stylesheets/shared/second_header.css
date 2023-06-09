@@ -1,0 +1,22 @@
+.second-header {
+  width: 100%;
+  min-width: 800px;
+  height: 130px;
+  background-color: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-right: 50px;
+}
+
+.second-logo {
+  width: 185px;
+  height: 200px;
+  padding: 50px 50px;
+}
+
+.second-text {
+  width: 185px;
+  height: 200px;
+  margin-left: 0;
+}
