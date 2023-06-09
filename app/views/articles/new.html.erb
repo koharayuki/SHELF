@@ -1,0 +1,69 @@
+<div class="items-sell-contents">
+  <header class="items-sell-header">
+    <%= link_to image_tag('SHELF_logo.png', class: :logo), "/" %>
+    <%= link_to image_tag('SHELF_text.png', class: :logo), "/" %>
+  </header>
+  <div class="items-sell-main">
+    <h2 class="items-sell-title">記事の情報を入力</h2>
+    <%= form_with model: @article, local: true do |f| %>
+    <%= render 'shared/error_messages', model: f.object %>
+
+    <%# 記事名と記事説明 %>
+    <div class="new-items">
+      <div class="weight-bold-text">
+        記事名
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :title, class:"items-text", id:"item-name", placeholder:"記事名（必須 40文字まで)", maxlength:"40" %>
+      <div class="items-explain">
+        <div class="weight-bold-text">
+          記事の説明
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_area :text, class:"items-text", id:"item-info", placeholder:"記事の説明（必須 1,000文字まで） 例）2023/6/9　＜YAHOOニュース＞オリラジ中田、ついに沈黙破るも「無茶苦茶ダサい」「対応がお粗末」　松本人志オファーに「会ってもそんなに面白くない」と消極姿勢、、など。" ,rows:"7" ,maxlength:"1000" %>
+      </div>
+      <div class="items-explain">
+        <div class="weight-bold-text">
+          記事のURL
+        </div>
+        <%= f.text_area :URL, class:"items-text", id:"item-name", placeholder:"記事のURL" %>
+      </div>
+    </div>
+    <div class="items-detail">
+      <div class="weight-bold-text">記事の詳細</div>
+      <div class="form">
+        <div class="weight-bold-text">
+          ジャンル
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
+      </div>
+    </div>
+    <%# 記事名と記事説明 %>
+
+    <%# 下部ボタン %>
+    <div class="sell-btn-contents">
+      <%= f.submit "投稿する" ,class:"sell-btn" %>
+      <%=link_to 'もどる', root_path, class:"back-btn" %>
+    </div>
+    <%# /下部ボタン %>
+  </div>
+  <% end %>
+
+  <footer class="items-sell-footer">
+    <ul class="menu">
+      <li><a href="#">プライバシーポリシー</a></li>
+      <li><a href="#">SHELF利用規約</a></li>
+      <li><a href="#">特定商取引に関する表記</a></li>
+    </ul>
+    <div class="footer-logo">
+      <%= link_to image_tag('SHELF_logo.png', class: :logo), "/" %>
+    </div>
+    <div class="footer-text">
+      <%= link_to image_tag('SHELF_text2.png', class: :logo), "/" %>
+    </div>
+    <p class="inc">
+      ©︎SHELF,Inc.
+    </p>
+  </footer>
+</div>

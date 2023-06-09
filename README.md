@@ -51,7 +51,7 @@ Things you may want to cover:
 | title              | string     | null: false                    |
 | text               | text       | null: false                    |
 | genre_id           | integer    | null: false                    |
-| URL                | text       | null: false                    |
+| URL                | text       |                                |
 | user               | references | null: false, foreign_key: true |
 
 ### Association

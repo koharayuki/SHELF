@@ -60,34 +60,36 @@
       新規投稿記事
     </div>
     <ul class='article-lists'>
-      <%# <% @articles.each do |article| %> %>
+      <% @articles.each do |article| %>
       <li class='list'>
-       <%# <%= link_to _path(article.id) do %> %>
-        <div class='article-img-content'>
-          <%# <%= image_tag article.image, class: "article-img" %> %>
-
-        </div>
+       <%= link_to articles_path(article.id) do %>
         <div class='article-info'>
+          <h2 class='article-title'>
+            <%= article.title %>
+          </h2>
           <h3 class='article-title'>
-            <%# <%= article.title %> %>
+            <%= article.text %>
+          </h3>
+          <h3 class='article-title'>
+            <%= article.genre.name %>
           </h3>
           <div class='article-url'>
-            <%# <span><%= article.url %><br><%= '#' %></span> %>
+            <span><%= article.URL %></span>
             <div class='star-btn'>
-              <%# <%= image_tag "star.png", class:"star-icon" %> %>
+              <%= image_tag "star.png", class:"star-icon" %>
               <span class='star-count'>0</span>
             </div>
           </div>
         </div>
-        <%# <% end %> %>
+        <% end %>
       </li>
-      <%# <% end %> %>
+      <% end %>
     </ul>
   </div>
   <%# 記事一覧 %>
 </div>
-<%# <%= link_to new_article_path, class: 'writing-btn' do %> %>
+<%= link_to new_article_path, class: 'writing-btn' do %>
   <span class='purchase-btn-text'>投稿する</span>
   <%= image_tag 'icon_writing.png' , size: '185x50' ,class: "writing-btn-icon" %>
-<%# <% end %> %>
+<% end %>
 <%= render "shared/footer" %>
