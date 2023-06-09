@@ -1,6 +1,13 @@
-
+# ---------user-------------
 
 @user = FactoryBot.build(:user)
 
-
 @user.errors.full_messages
+
+# ---------article-------------
+
+@article = FactoryBot.build(:article)
+
+@article.errors.full_messages
+
+# ---------???-------------
