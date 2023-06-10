@@ -39,12 +39,12 @@
         <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
       </div>
     </div>
-    <%# タイトル名と記事の説明 %>
+    <%# /タイトル名と記事の説明 %>
 
     <%# 下部ボタン %>
     <div class="sell-btn-contents">
-      <%= f.submit "投稿する" ,class:"sell-btn" %>
-      <%=link_to 'もどる', root_path, class:"back-btn" %>
+      <%= f.submit "変更する" ,class:"sell-btn" %>
+      <%=link_to 'もどる', article_path, class:"back-btn" %>
     </div>
     <%# /下部ボタン %>
   </div>

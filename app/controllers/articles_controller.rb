@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :authenticate_user!, except: :index
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :move_to_index, only: :edit
 
   def index
@@ -22,6 +22,20 @@ class ArticlesController < ApplicationController
   def show
     @article = Article.find(params[:id])
   end
+
+  def edit
+    @article = Article.find(params[:id])
+  end
+
+  def update
+    @article = Article.find(params[:id])
+    if @article.update(article_params)
+      redirect_to article_path
+    else
+      render :edit
+    end
+  end
+
 
   private
 
