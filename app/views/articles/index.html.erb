@@ -62,7 +62,7 @@
     <ul class='article-lists'>
       <% @articles.each do |article| %>
       <li class='list'>
-       <%= link_to articles_path(article.id) do %>
+       <%= link_to article_path(article.id) do %>
         <div class='article-info'>
           <h2 class='article-title'>
             <%= article.title %>
