@@ -90,7 +90,7 @@ Things you may want to cover:
 - belongs_to :follower, class_name: "User"
 
 
-## categoriesテーブル
+## genresテーブル
 
 |  Column            |  Type      |  Options                       |
 | ------------------ | ---------- | ------------------------------ |
