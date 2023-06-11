@@ -4,6 +4,7 @@ class ArticlesController < ApplicationController
   before_action :move_to_index, only: :edit
 
   def index
+    @users = User.all
     @articles = Article.order("created_at DESC")
   end
 

@@ -1,0 +1,55 @@
+<div class="items-sell-contents">
+  <header class="items-sell-header">
+    <%= link_to image_tag('SHELF_logo.png', class: :logo), "/" %>
+    <%= link_to image_tag('SHELF_text.png', class: :logo), "/" %>
+  </header>
+
+    <div class="main">
+      <div class="inner">
+        <div class="user__wrapper">
+          <h2 class="page-heading">
+            <%= "#{@user.nickname}さんの情報"%>
+          </h2>
+          <table class="table">
+            <tbody>
+              <tr>
+                <th class="table__col1">名前</th>
+                <td class="table__col2"><%= @user.nickname %></td>
+              </tr>
+              <%# <tr>
+                <th class="table__col1">好きなジャンル</th>
+                <%# <td class="table__col2"><%= @articles.genre.name %></td> %>
+              <%# </tr> %> %>
+              <tr>
+                <th class="table__col1">フォロワー</th>
+              </tr>
+                <h3>フォロー</h3>
+                  <% @user.followings.each do |user| %>
+                  <p class=“f-user”><%= link_to user.nickname, user_path(user.id) %></p>
+                <% end %>
+                <h3>フォロワー</h3>
+                <% @user.followers.each do |user| %>
+                  <p class=“f-user”><%= link_to user.nickname, user_path(user.id) %></p>
+                <% end %>
+            </tbody>
+          </table>
+          <h2 class="page-heading">
+            <%= "#{@user.nickname}さんの記事"%>
+          </h2>
+          <div class="user__card">
+            <%# 部分テンプレートでそのユーザーが投稿したプロトタイプ投稿一覧を表示する %>
+          <%= render partial: "articles/article", collection: @articles %>
+          </div>
+            <% if current_user != @user %>
+              <div class="follow_page">
+                <% if @user.followed_by?(current_user) %>
+                  <%=link_to "フォロー中", user_follows_path(@user.id),class: "btn" , method: :delete %>
+                <% else %>
+                  <%=link_to "フォローする", user_follows_path(@user.id),class: "btn" ,method: :post %>
+                <% end %>
+              <% end %>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
