@@ -4,11 +4,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :articles
+  has_many :articles, dependent: :destroy
+  has_many :favorites, dependent: :destroy
 
   has_many :active_follows, class_name: "Follow", foreign_key: :following_id, dependent: :destroy
   has_many :followings, through: :active_follows, source: :follower
-
   has_many :passive_follows, class_name: "Follow", foreign_key: :follower_id, dependent: :destroy
   has_many :followers, through: :passive_follows, source: :following
 

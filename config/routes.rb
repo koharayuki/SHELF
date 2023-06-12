@@ -7,6 +7,10 @@ Rails.application.routes.draw do
     resource :follows, only: [:create, :destroy]
   end
 
+  resources :articles, only: [:index, :new, :create] do
+    resource :favorites, only: [:create, :destroy]
+  end
+
   resources :users, only: [:index, :show]
 
 end

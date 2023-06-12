@@ -47,7 +47,10 @@
                 <% else %>
                   <%=link_to "フォローする", user_follows_path(@user.id),class: "btn" ,method: :post %>
                 <% end %>
-              <% end %>
+              </div>
+            <% end %>
+            <div class="favorite_page">
+              <%= render partial: "favorites/favorite",  collection: @articles %>
             </div>
         </div>
       </div>
