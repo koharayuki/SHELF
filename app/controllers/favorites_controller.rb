@@ -1,5 +1,9 @@
 class FavoritesController < ApplicationController
 
+  def index
+    @favorite_articles = current_user.favorite_articles.includes(:user).order(created_at: :desc)
+  end
+
   def create
     article = Article.find(params[:article_id])
     current_user.favorite(article)

@@ -61,7 +61,7 @@ a {
   width: 200px;
 }
 .nav__right{
-  margin-top: 90px;
+  margin-top: 70px;
 }
 .nav__btn{
   display: inline-block;
@@ -81,7 +81,7 @@ a {
 
 .nav__logout{
   display: inline-block;
-  padding: 0.4em 1.6em;
+  padding: 0.4em 1.4em;
   font-size: 150%;
   color: #56bbfa;
   text-decoration: none;

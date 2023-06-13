@@ -1,0 +1,12 @@
+<%= render "shared/second-header"%>
+<div class="registration-main">
+
+  <% if @favorite_articles.present? %>
+    <%= render @favorite_articles %>
+  <% else %>
+    <p><%= t('.no_result') %></p>
+  <% end %>
+
+</div>
+
+<%= render "shared/second-footer"%>

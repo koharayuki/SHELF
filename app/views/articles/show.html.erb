@@ -44,7 +44,6 @@
       </tbody>
     </table>
     <% if current_user.own?(@article) %>
-      <%= render 'crud_menus', article: article %>
     <% else %>
       <%= render 'favorites/favorite_button', article:@article %>
     <% end %>

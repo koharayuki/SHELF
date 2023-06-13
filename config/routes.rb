@@ -9,9 +9,7 @@ Rails.application.routes.draw do
 
   resources :users, only: %i[new create]
     resources :articles do
-      collection do
-        get :favorites
-      end
+      resources :favorites
     end
   resources :favorites, only: %i[create destroy]
 
