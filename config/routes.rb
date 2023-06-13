@@ -7,9 +7,13 @@ Rails.application.routes.draw do
     resource :follows, only: [:create, :destroy]
   end
 
-  resources :articles, only: [:index, :new, :create] do
-    resource :favorites, only: [:create, :destroy]
-  end
+  resources :users, only: %i[new create]
+    resources :articles do
+      collection do
+        get :favorites
+      end
+    end
+  resources :favorites, only: %i[create destroy]
 
   resources :users, only: [:index, :show]
 

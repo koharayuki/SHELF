@@ -49,9 +49,12 @@
                 <% end %>
               </div>
             <% end %>
-            <div class="favorite_page">
-              <%= render partial: "favorites/favorite",  collection: @articles %>
-            </div>
+
+            <% if @favorites_articles.present? %>
+              <%= render @favorites_articles %>
+            <% else %>
+              <p><%= t('.no_result') %></p>
+            <% end %>
         </div>
       </div>
     </div>

@@ -43,6 +43,11 @@
 
       </tbody>
     </table>
+    <% if current_user.own?(@article) %>
+      <%= render 'crud_menus', article: article %>
+    <% else %>
+      <%= render 'favorites/favorite_button', article:@article %>
+    <% end %>
     <div class="option">
       <div class="favorite-btn">
         <%= image_tag "star.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
