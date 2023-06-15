@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :articles, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :favorite_articles, through: :favorites, source: :article
+  has_one_attached :image
 
   has_many :active_follows, class_name: "Follow", foreign_key: :following_id, dependent: :destroy
   has_many :followings, through: :active_follows, source: :follower
@@ -37,5 +38,9 @@ class User < ApplicationRecord
 
   validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i }
   validates :nickname, presence: true
+  validates :image, presence: true, unless: :was_attached?
 
+  def was_attached?
+    self.image.attached?
+  end
 end

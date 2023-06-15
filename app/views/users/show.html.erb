@@ -7,18 +7,21 @@
       <div class="nav__right">
         <%= link_to "フォロー", '/users/:user_id/followings', class: :nav__text %>
         <%= link_to "フォロワー", user_followers_path(current_user.id), class: :nav__text %>
-        <%= link_to "お気に入り",  '/articles/:article_id/favorites', class: :nav__text %>
+        <%= link_to "お気に入り",  '/users/:user_id/articles/:article_id/favorites', class: :nav__text %>
       </div>
     </div>
   </div>
 </header>
 
-    <div class="main">
+<%# /* ------------user/show/main------------- */ %>
+
       <div class="inner">
         <div class="user__wrapper">
           <h2 class="page-heading">
-            <%= "#{@user.nickname}さんの情報"%>
+            <%= "#{@user.nickname}さんのマイページ"%>
           </h2>
+<div class="card">
+  <%= image_tag @user.image.variant(resize: '500x500'), class: 'card__img' if @user.image.attached? %>
           <table class="table">
             <tbody>
               <tr>
@@ -27,8 +30,23 @@
               </tr>
               <%# <tr>
                 <th class="table__col1">好きなジャンル</th>
-                <%# <td class="table__col2"><%= @articles.genre.name %></td> %>
-              <%# </tr> %> %>
+                <%# <td class="table__col2"><%= @articles.genre.name %>
+                <%#  %>
+              <%# </tr> %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+            <% if current_user != @user %>
+              <div class="follow_page">
+            <% if @user.followed_by?(current_user) %>
+              <%=link_to "フォロー中", user_follows_path(@user.id),class: "btn" , method: :delete %>
+            <% else %>
+              <%=link_to "フォローする", user_follows_path(@user.id),class: "btn" ,method: :post %>
+            <% end %>
+              </div>
+            <% end %>
+
               <tr>
                 <th class="table__col1">フォロワー</th>
               </tr>
@@ -40,25 +58,18 @@
                 <% @user.followers.each do |user| %>
                   <p class=“f-user”><%= link_to user.nickname, user_path(user.id) %></p>
                 <% end %>
-            </tbody>
-          </table>
-          <h2 class="page-heading">
-            <%= "#{@user.nickname}さんの記事"%>
-          </h2>
-          <div class="user__card">
-            <%# 一覧を表示する %>
-          <%= render partial: "articles/article", collection: @articles %>
+
+        <%# 投稿一覧の表示 %>
+              <% if @articles[0] == nil %>
+              <% else %>
+                <h2 class="page-heading">
+                  <%= "#{@user.nickname}さんの投稿記事"%>
+                </h2>
+            <div class="user__card">
+              <%= render partial: "articles/article", collection: @articles %>
+              <% end %>
+            </div>
           </div>
-            <% if current_user != @user %>
-              <div class="follow_page">
-                <% if @user.followed_by?(current_user) %>
-                  <%=link_to "フォロー中", user_follows_path(@user.id),class: "btn" , method: :delete %>
-                <% else %>
-                  <%=link_to "フォローする", user_follows_path(@user.id),class: "btn" ,method: :post %>
-                <% end %>
-              </div>
-            <% end %>
         </div>
       </div>
     </div>
-  </div>
