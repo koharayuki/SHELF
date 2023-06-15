@@ -9,12 +9,14 @@ Rails.application.routes.draw do
     get 'followers' => 'follows#followers', as: 'followers'
   end
 
-  resources :users, only: %i[new create]
+  resources :users do
     resources :articles do
       resources :favorites, only: :index
     end
-  resources :favorites, only: %i[create destroy]
+  end
+  resources :favorites, only: [:create, :destroy]
 
-  resources :users, only: [:index, :show]
-
+  resources :articles do
+    resources :users, only: [:new, :index, :create, :show]
+  end
 end
