@@ -5,11 +5,13 @@ Rails.application.routes.draw do
   resources :articles, only: [:index, :new, :create, :show, :edit, :update, :destroy]
   resources :users do
     resource :follows, only: [:create, :destroy]
+    get 'followings' => 'follows#followings', as: 'followings'
+    get 'followers' => 'follows#followers', as: 'followers'
   end
 
   resources :users, only: %i[new create]
     resources :articles do
-      resources :favorites
+      resources :favorites, only: :index
     end
   resources :favorites, only: %i[create destroy]
 

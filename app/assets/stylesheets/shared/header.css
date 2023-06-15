@@ -79,15 +79,15 @@ a {
   background: #87CEFA;
 }
 
-.nav__logout{
+.nav__text{
   display: inline-block;
   padding: 0.4em 1.4em;
-  font-size: 150%;
+  font-size: 180%;
   color: #56bbfa;
   text-decoration: none;
   user-select: none;
 }
-.nav__logout:hover{
+.nav__text:hover{
   opacity: 0.5;
 }
 

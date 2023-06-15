@@ -1,66 +1,53 @@
 <%= render "shared/header" %>
 
-<%# 記事の概要 %>
+<%# ---記事の概要--- %>
 
 <div class="item-show">
   <div class="item-box">
-    <h2 class="name">
+    <h2 class="title">
       <%= @article.title %>
     </h2>
 
-    <div class="item-price-box">
-      <span class="item-price">
+    <div class="item-box-show">
+      <span class="item-text">
          <%= @article.text %>
       </span>
-      <span class="item-postage">
-        <%= @article.genre.name %>
-      </span>
-      <span class="item-price">
-         <%= @article.URL %>
-      </span>
     </div>
-
-
-      <% if user_signed_in? %>
-        <% if current_user.id == @article.user_id %>
-        <%= link_to "記事の編集", edit_article_path, method: :get, class: "item-red-btn" %>
-          <p class="or-text">or</p>
-        <%= link_to "削除",  article_path, method: :delete, class:"item-destroy" %>
-        <% end %>
-      <% end %>
 
     <table class="detail-table">
       <tbody>
         <tr>
-          <th class="detail-item">投稿者</th>
-          <%= link_to @article.user.nickname, user_path(@article.user.id), class: :nav__logout %>
-          <td class="detail-value"><%= @article.user.nickname %></td>
+          <th class="detail-item">＜投稿者＞</th>
+            <td class="detail-value">
+              <%= link_to @article.user.nickname, user_path(@article.user.id), class: :detail_user %>
+            </td>
+          <tr>
+            <th class="detail-item">＜ジャンル＞</th>
+            <td class="detail-value"><%= @article.genre.name %></td>
+          <tr>
+            <th class="detail-item">＜URL＞</th>
+            <td class="detail-value"><%= @article.URL %></td>
         </tr>
-        <tr>
-          <th class="detail-item">ジャンル</th>
-          <td class="detail-value"><%= @article.genre.name %></td>
-        </tr>
-
       </tbody>
     </table>
+
+    <% if user_signed_in? %>
+      <% if current_user.id == @article.user_id %>
+        <%= link_to "記事の編集", edit_article_path, method: :get, class: "item-red-btn" %>
+          <p class="or-text">or</p>
+        <%= link_to "記事の削除",  article_path, method: :delete, class:"item-destroy" %>
+      <% end %>
+    <% end %>
+
     <% if current_user.own?(@article) %>
     <% else %>
       <%= render 'favorites/favorite_button', article:@article %>
     <% end %>
-    <div class="option">
-      <div class="favorite-btn">
-        <%= image_tag "star.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
-        <span>お気に入り 0</span>
-      </div>
-      <div class="report-btn">
-        <%= image_tag "flag.png" ,class:"report-flag-icon" ,width:"20",height:"20"%>
-        <span>不適切な記事の通報</span>
-      </div>
-    </div>
-  </div>
-  <%# 記事の概要 %>
 
-  <div class="links">
+  </div>
+  <%# ---記事の概要--- %>
+
+  <%# <div class="links">
     <a href="#" class="change-item-btn">
       ＜ 前の記事
     </a>
@@ -68,7 +55,8 @@
       後ろの記事 ＞
     </a>
   </div>
-  <a href="#" class="another-item"><%= @article.genre.name %>をもっと見る</a>
-</div>
+  <a href="#" class="another-item"><%= @article.genre.name %>
+  <%# をもっと見る</a> %>
+<%# </div> %>
 
 <%= render "shared/footer" %>

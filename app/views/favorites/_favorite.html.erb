@@ -1,3 +1,10 @@
 <%= link_to favorites_path(article_id: article.id), id: "js-favorite-button-for-article-#{article.id}", class:"float-right", method: :post do %>
-お気に入り登録する
+
+    <div class="option">
+      <div class="favorite-btn">
+        <%= image_tag "star.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
+        <span>お気に入り登録する</span>
+      </div>
+    </div>
+
 <% end %>

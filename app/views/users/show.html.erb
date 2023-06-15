@@ -1,8 +1,17 @@
-<div class="items-sell-contents">
-  <header class="items-sell-header">
-    <%= link_to image_tag('SHELF_logo.png', class: :logo), "/" %>
-    <%= link_to image_tag('SHELF_text.png', class: :logo), "/" %>
-  </header>
+<header class="header">
+  <div class="inner">
+    <div class="nav">
+      <div class="nav__left">
+        <%= link_to image_tag("SHELF_set.png", class: :logo), root_path %>
+      </div>
+      <div class="nav__right">
+        <%= link_to "フォロー", '/users/:user_id/followings', class: :nav__text %>
+        <%= link_to "フォロワー", user_followers_path(current_user.id), class: :nav__text %>
+        <%= link_to "お気に入り",  '/articles/:article_id/favorites', class: :nav__text %>
+      </div>
+    </div>
+  </div>
+</header>
 
     <div class="main">
       <div class="inner">
@@ -37,7 +46,7 @@
             <%= "#{@user.nickname}さんの記事"%>
           </h2>
           <div class="user__card">
-            <%# 部分テンプレートでそのユーザーが投稿したプロトタイプ投稿一覧を表示する %>
+            <%# 一覧を表示する %>
           <%= render partial: "articles/article", collection: @articles %>
           </div>
             <% if current_user != @user %>

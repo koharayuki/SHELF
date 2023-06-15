@@ -1,0 +1,4 @@
+    <h3>フォロワー</h3>
+    <% @user.followers.each do |user| %>
+      <p class=“f-user”><%= link_to user.name, user_path(user.id) %></p>
+    <% end %>

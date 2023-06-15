@@ -1,12 +1,16 @@
-<%= render "shared/second-header"%>
-<div class="registration-main">
+<%= render "shared/header"%>
 
-  <% if @favorite_articles.present? %>
-    <%= render @favorite_articles %>
-  <% else %>
-    <p><%= t('.no_result') %></p>
-  <% end %>
+<div class="favorite-main">
+  <div class="favorite-box">
 
+    <% if @favorite_articles.present? %>
+        <%= render partial: "favorites/favorite_articles", collection: @favorite_articles %>
+    <% else %>
+      <p><%= t('.no_result') %></p>
+    <% end %>
+
+  </div>
 </div>
+
 
 <%= render "shared/second-footer"%>

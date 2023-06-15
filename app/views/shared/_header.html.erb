@@ -6,15 +6,14 @@
       </div>
       <% if user_signed_in? %>
         <div class="nav__right">
-          <%= link_to "フォロー", favorites_path, class: :nav__logout %>
-          <%= link_to "お気に入りリスト",  '/articles/:article_id/favorites', class: :nav__logout %>
-          <%= link_to "#{current_user.nickname}さん", user_path(current_user.id), class: :nav__logout %>
-          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: :nav__logout %>
+          <%= link_to "#{current_user.nickname}さん", user_path(current_user.id), class: :nav__text %>
+          <%= link_to "マイページ", user_path(current_user.id), class: :nav__text %>
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: :nav__text %>
         </div>
       <% else %>
         <div class="nav__right">
-          <%= link_to "ログイン", new_user_session_path, class: :nav__btn %>
-          <%= link_to "新規登録", new_user_registration_path, class: :nav__btn %>
+          <%= link_to "ログイン", new_user_session_path, class: :nav__text %>
+          <%= link_to "新規登録", new_user_registration_path, class: :nav__text %>
         </div>
       <% end %>
     </div>

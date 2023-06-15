@@ -12,5 +12,10 @@ class FollowsController < ApplicationController
     redirect_to root_path
   end
 
+  def followers
+    user = User.find(params[:user_id])
+    @users = user.followers
+    follow = current_user.active_follows.find_by(follower_id: params[:user_id])
 
+  end
 end
