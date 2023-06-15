@@ -1,16 +1,21 @@
 <%= render "shared/header"%>
 
-<div class="favorite-main">
-  <div class="favorite-box">
+
 
     <% if @favorite_articles.present? %>
         <%= render partial: "favorites/favorite_articles", collection: @favorite_articles %>
     <% else %>
-      <p><%= t('.no_result') %></p>
+      <p class="no-result"><%= t('."no_result"') %></p>
+      <div class="favorite-text">
+        <div class='favorite-star'>
+          <%= image_tag "favorite-star.png", class:"favorite-star-icon" %>
+     
+      <p class="no-result-btm"><%= t('.【お気に入り登録】してみましょう！') %></p>
+      </div>
+            </div>
+
     <% end %>
 
-  </div>
-</div>
 
 
 <%= render "shared/second-footer"%>
