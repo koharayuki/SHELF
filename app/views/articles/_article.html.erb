@@ -1,9 +1,37 @@
-<div class="card">
-  <div class="card__body">
+<div class="user-article-list">
+
+<div class="article-main">
+  <div class="article-box">
+<table class="detail-table">
+    <h2 class="title">
     <%= link_to article.title, user_path(article.user.id), method: :get, class: :card__title%>
-    <p class="card__summary">
+    </h2>
+      <div class="item-box-show">
+        <span class="item-text">
     <%= link_to article.text, user_path(article.user.id), method: :get, class: :card__title%>
-    </p>
+        </span>
+      </div>
+      <tbody>
+        <tr>
+          <th class="detail-item">＜投稿者＞</th>
+            <td class="detail-value">
     <%= link_to article.user.nickname, user_path(article.user.id), method: :get, class: :card__user %>
+            </td>
+        <tr>
+          <th class="detail-item">＜ジャンル＞</th>
+            <td class="detail-value">
+    <%= link_to article.genre.name, user_path(article.user.id), method: :get, class: :card__user %>
+            </td>
+        <tr>
+          <th class="detail-item">＜URL＞</th>
+            <td class="detail-value">
+    <%= link_to article.URL, user_path(article.user.id), method: :get, class: :card__user %>
+            </td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
   </div>
 </div>
+</div>
+

@@ -29,13 +29,12 @@
         <%= f.text_area :URL, class:"items-text", id:"item-name", placeholder:"記事のURL" %>
       </div>
     </div>
-    <div class="items-detail">
-      <div class="weight-bold-text">記事の詳細</div>
-      <div class="form">
-        <div class="weight-bold-text">
-          ジャンル
-          <span class="indispensable">必須</span>
-        </div>
+    <div class="items-explain">
+        <div class="form">
+            <div class="weight-bold-text">
+              ジャンル
+              <span class="indispensable">必須</span>
+          </div>
         <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
       </div>
     </div>

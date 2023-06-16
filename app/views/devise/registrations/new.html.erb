@@ -38,15 +38,17 @@
       <span class="indispensable">必須</span>
     </div>
     <%= f.password_field :password_confirmation, class:"input-default", id:"password-confirmation", placeholder:"同じパスワードを入力して下さい" %>
-        <div class='form-text-wrap'>
+    <div class="form-for-profile">
+    <div class='form-text-wrap'>
       <label class="form-text">プロフィール画像</label>
-    </div>
+      <span class="indispensable">必須</span>
     <%= f.file_field :image, class:"input-default", id:"user_image" %>
+    </div>
+    </div>
+    <div class='register-btn'>
+      <%= f.submit "会員登録" ,class:"register-red-btn" %>
+    </div>
   </div>
-  <div class='register-btn'>
-    <%= f.submit "会員登録" ,class:"register-red-btn" %>
-  </div>
-</div>
 <% end %>
 
 <%= render "shared/second-footer"%>
