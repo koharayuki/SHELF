@@ -5,9 +5,8 @@
         <%= link_to image_tag("SHELF_set.png", class: :logo), root_path %>
       </div>
       <div class="nav__right">
-        <%= link_to "フォロー", '/users/:user_id/followings', class: :nav__text %>
-        <%= link_to "フォロワー", user_followers_path(current_user.id), class: :nav__text %>
         <%= link_to "お気に入り",  '/users/:user_id/articles/:article_id/favorites', class: :nav__text %>
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: :nav__text %>
       </div>
     </div>
   </div>
