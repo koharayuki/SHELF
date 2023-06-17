@@ -1,0 +1,8 @@
+ja:
+  activerecord:
+    attributes:
+      article:
+        title: 記事のタイトル
+        text: 記事の説明
+        image: 画像
+        genre_id: ジャンル
