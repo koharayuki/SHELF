@@ -37,12 +37,13 @@
           <p class="or-text">or</p>
         <%= link_to "記事の削除",  article_path, method: :delete, class:"item-destroy" %>
       <% end %>
+
+      <% if current_user.own?(@article) %>
+      <% else %>
+        <%= render 'favorites/favorite_button', article:@article %>
+      <% end %>
     <% end %>
 
-    <% if current_user.own?(@article) %>
-    <% else %>
-      <%= render 'favorites/favorite_button', article:@article %>
-    <% end %>
 
   </div>
   <%# ---記事の概要--- %>
