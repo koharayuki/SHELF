@@ -16,19 +16,19 @@ RSpec.describe Article, type: :model do
       it 'titleが空では登録できない' do
         @article.title = ''
         @article.valid?
-        expect(@article.errors.full_messages).to include("Title can't be blank")
+        expect(@article.errors.full_messages).to include("記事のタイトルを入力してください")
       end
 
       it 'textが空では登録できない' do
         @article.text = ''
         @article.valid?
-        expect(@article.errors.full_messages).to include("Text can't be blank")
+        expect(@article.errors.full_messages).to include("記事の説明を入力してください")
       end
 
       it 'category_idが1では登録できない' do
         @article.genre_id = 1
         @article.valid?
-        expect(@article.errors.full_messages).to include("Genre can't be blank")
+        expect(@article.errors.full_messages).to include("ジャンルを選択してください")
       end
     end
   end

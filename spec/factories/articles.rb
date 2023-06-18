@@ -5,6 +5,5 @@ FactoryBot.define do
     genre_id            { 3 }
 
     association :user
-
   end
 end
