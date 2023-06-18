@@ -38,9 +38,5 @@ class User < ApplicationRecord
 
   validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i }
   validates :nickname, presence: true
-  validates :image, presence: true, unless: :was_attached?
-
-  def was_attached?
-    self.image.attached?
-  end
+  validates :image, presence: true
 end
