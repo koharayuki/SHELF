@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 2023_06_15_054726) do
   end
 
   create_table "articles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "title", null: false
+    t.text "title", null: false
     t.text "text", null: false
     t.integer "genre_id", null: false
     t.text "URL"
@@ -68,7 +68,6 @@ ActiveRecord::Schema.define(version: 2023_06_15_054726) do
     t.text "profile"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
-    t.integer "article_id"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
