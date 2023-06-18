@@ -1,31 +1,32 @@
 <div class="favorite-main">
   <div class="favorite-box">
-<table class="detail-table">
-  <%= link_to article_path(favorite_articles.id) do %>
-    <h2 class="title">
-      <%= favorite_articles.title %>
-    </h2>
-      <div class="item-box-show">
-        <span class="item-text">
-          <%= favorite_articles.text %>
-        </span>
-      </div>
-      <tbody>
-        <tr>
-          <th class="detail-item">＜投稿者＞</th>
-            <td class="detail-value">
-              <%= favorite_articles.user.nickname %>
-            </td>
-        <tr>
-          <th class="detail-item">＜ジャンル＞</th>
-            <td class="detail-value"><%= favorite_articles.genre.name %></td>
-        <tr>
-          <th class="detail-item">＜URL＞</th>
-            <td class="detail-value"><%= favorite_articles.URL %></td>
-        </tr>
-      </tbody>
-    </table>
+    <table class="detail-table">
+      <%= link_to article_path(favorite_articles.id) do %>
+        <h2 class="title">
+          <%= favorite_articles.title %>
+        </h2>
+        <div class="item-box-show">
+          <span class="item-text">
+            <%= favorite_articles.text %>
+          </span>
+        </div>
+        <tbody>
+          <tr>
+            <th class="detail-item">＜投稿者＞</th>
+              <td class="detail-value">
+                <%= favorite_articles.user.nickname %>
+              </td>
+          <tr>
+            <th class="detail-item">＜ジャンル＞</th>
+              <td class="detail-value"><%= favorite_articles.genre.name %></td>
+          <tr>
+            <th class="detail-item">＜URL＞</th>
+              <td class="detail-value"><%= favorite_articles.URL %></td>
+          </tr>
+        </tbody>
   <% end %>
+        </table>
+
     </div>
   </div>
 </div>

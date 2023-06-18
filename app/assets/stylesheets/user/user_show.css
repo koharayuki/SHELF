@@ -1,4 +1,6 @@
 /* ------------user/show/main------------- */
+/* <%# ---フォローボタン/リスト表示--- %> */
+
 .inner {
   width: 1024px;
   margin: 0 auto;
@@ -50,21 +52,6 @@
   justify-content: center;
 }
 
-/* .table__col2{
-  text-align: left;
-  border: 1px solid #f5f5f5;
-  border-collapse: collapse;
-  width: 70%;
-  padding: 16px 8px;
-}
-
-.user__card {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 20px;
-} */
 
 .follow_page-btn {
   border-radius: 40px;
@@ -188,7 +175,7 @@ height: 100%;
  /* <%# ---投稿一覧の表示--- %> */
 
 .user-article {
-  background-color: rgb(189, 246, 189);
+  background-color:  #ddedfa;
   font-size: 4.5vh;
   font-weight: 600;
   display: flex;
@@ -199,11 +186,11 @@ height: 100%;
 .space {
   background-color: orange;  height: 1px;
   background-image: linear-gradient(to right, transparent, #ccc, transparent);
-  margin: 90px 0;
+  margin: 70px 0 100px 0;
 }
 
 .user-article-list {
-  background-color: rgb(229, 250, 236);
+  background-color:  #f1f8fe;
   display: flex;
   justify-content: center;
   padding-bottom: 30px;
