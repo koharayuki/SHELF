@@ -7,13 +7,11 @@
     <h2 class="title">
       <%= @article.title %>
     </h2>
-
     <div class="item-box-show">
       <span class="item-text">
          <%= @article.text %>
       </span>
     </div>
-
     <table class="detail-table">
       <tbody>
         <tr>
@@ -21,11 +19,11 @@
             <td class="detail-value">
               <%= link_to @article.user.nickname, user_path(@article.user.id), class: :detail_user %>
             </td>
-          <tr>
-            <th class="detail-item">＜ジャンル＞</th>
+        <tr>
+          <th class="detail-item">＜ジャンル＞</th>
             <td class="detail-value"><%= @article.genre.name %></td>
-          <tr>
-            <th class="detail-item">＜URL＞</th>
+        <tr>
+          <th class="detail-item">＜URL＞</th>
             <td class="detail-value"><%= @article.URL %></td>
         </tr>
       </tbody>
@@ -43,21 +41,7 @@
         <%= render 'favorites/favorite_button', article:@article %>
       <% end %>
     <% end %>
-
-
   </div>
-  <%# ---記事の概要--- %>
-
-  <%# <div class="links">
-    <a href="#" class="change-item-btn">
-      ＜ 前の記事
-    </a>
-    <a href="#" class="change-item-btn">
-      後ろの記事 ＞
-    </a>
-  </div>
-  <a href="#" class="another-item"><%= @article.genre.name %>
-  <%# をもっと見る</a> %>
-<%# </div> %>
+</div>
 
 <%= render "shared/footer" %>

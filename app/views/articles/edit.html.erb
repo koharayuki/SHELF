@@ -6,48 +6,48 @@
   <div class="items-sell-main">
     <h2 class="items-sell-title">記事の情報を入力</h2>
     <%= form_with model: @article, local: true do |f| %>
-    <%= render 'shared/error_messages', model: f.object %>
+      <%= render 'shared/error_messages', model: f.object %>
 
-    <%# タイトル名と記事の説明 %>
-    <div class="new-items">
-      <div class="weight-bold-text">
-        記事のタイトル
-        <span class="indispensable">必須</span>
-      </div>
-      <%= f.text_area :title, class:"items-text", id:"item-name", placeholder:"記事名（必須 40文字まで)", maxlength:"40" %>
-      <div class="items-explain">
+      <%# タイトル名と記事の説明 %>
+      <div class="new-items">
         <div class="weight-bold-text">
-          記事の説明
+          記事のタイトル
           <span class="indispensable">必須</span>
         </div>
-        <%= f.text_area :text, class:"items-text", id:"item-info", placeholder:"記事の説明（必須 1,000文字まで） 例）2023/6/9　＜YAHOOニュース＞オリラジ中田、ついに沈黙破るも「無茶苦茶ダサい」「対応がお粗末」　松本人志オファーに「会ってもそんなに面白くない」と消極姿勢、、など。" ,rows:"7" ,maxlength:"1000" %>
-      </div>
-      <div class="items-explain">
-        <div class="weight-bold-text">
-          記事のURL
+        <%= f.text_area :title, class:"items-text", id:"item-name", placeholder:"記事名（必須 40文字まで)", maxlength:"40" %>
+        <div class="items-explain">
+          <div class="weight-bold-text">
+            記事の説明
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.text_area :text, class:"items-text", id:"item-info", placeholder:"記事の説明（必須 1,000文字まで） 例）2023/6/9　＜YAHOOニュース＞オリラジ中田、ついに沈黙破るも「無茶苦茶ダサい」「対応がお粗末」　松本人志オファーに「会ってもそんなに面白くない」と消極姿勢、、など。" ,rows:"7" ,maxlength:"1000" %>
         </div>
-        <%= f.text_area :URL, class:"items-text", id:"item-name", placeholder:"記事のURL" %>
-      </div>
-    </div>
-    <div class="items-detail">
-      <div class="form">
-        <div class="weight-bold-text">
-          ジャンル
-          <span class="indispensable">必須</span>
+        <div class="items-explain">
+          <div class="weight-bold-text">
+            記事のURL
+          </div>
+          <%= f.text_area :URL, class:"items-text", id:"item-name", placeholder:"記事のURL" %>
         </div>
-        <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
       </div>
-    </div>
-    <%# /タイトル名と記事の説明 %>
+      <div class="items-detail">
+        <div class="form">
+          <div class="weight-bold-text">
+              ジャンル
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
+        </div>
+      </div>
+      <%# /タイトル名と記事の説明 %>
 
-    <%# 下部ボタン %>
-    <div class="sell-btn-contents">
-      <%= f.submit "変更する" ,class:"sell-btn" %>
-      <%=link_to 'もどる', article_path, class:"back-btn" %>
-    </div>
-    <%# /下部ボタン %>
+      <%# 下部ボタン %>
+      <div class="sell-btn-contents">
+        <%= f.submit "変更する" ,class:"sell-btn" %>
+        <%=link_to 'もどる', article_path, class:"back-btn" %>
+      </div>
+      <%# /下部ボタン %>
+    <% end %>
   </div>
-  <% end %>
 
   <footer class="items-sell-footer">
     <ul class="menu">

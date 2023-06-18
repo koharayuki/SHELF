@@ -61,31 +61,31 @@
     </div>
     <ul class='article-lists'>
       <% @articles.each do |article| %>
-      <li class='list'>
-       <%= link_to article_path(article.id) do %>
-        <div class='article-info'>
-          <h2 class='article-title'>
-            【タイトル】
-            <%= article.title %>
-          </h2>
-          <h3 class='article-text'>
-            <%= article.text %>
-          </h3>
-          <h3 class='article-genre'>
-            ジャンル :
-            <%= article.genre.name %>
-          </h3>
-          <div class='article-url'>
-            URL :
-            <%= article.URL %>
-          </div>
-          <div class='star-btn'>
-              <%= image_tag "star.png", class:"star-icon" %>
-              <span class='star-count'>0</span>
-          </div>
-        </div>
-        <% end %>
-      </li>
+        <li class='list'>
+          <%= link_to article_path(article.id) do %>
+            <div class='article-info'>
+              <h2 class='article-title'>
+                【タイトル】
+                <%= article.title %>
+              </h2>
+              <h3 class='article-text'>
+                <%= article.text %>
+              </h3>
+              <h3 class='article-genre'>
+                ジャンル :
+                <%= article.genre.name %>
+              </h3>
+              <div class='article-url'>
+                URL :
+                <%= article.URL %>
+              </div>
+              <div class='star-btn'>
+                <%= image_tag "star.png", class:"star-icon" %>
+                <span class='star-count'>0</span>
+              </div>
+            </div>
+          <% end %>
+        </li>
       <% end %>
     </ul>
   </div>

@@ -1,10 +1,8 @@
 <%= link_to favorite_path(current_user.favorites.find_by(article_id: article.id)), id: "js-favorite-button-for-article-#{article.id}", class:"float-right", method: :delete do %>
-
-    <div class="option">
-      <div class="un-favorite-btn">
-        <%= image_tag "star.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
-        <span>お気に入り解除する</span>
-      </div>
+  <div class="option">
+    <div class="un-favorite-btn">
+      <%= image_tag "star.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
+      <span>お気に入り解除する</span>
     </div>
-
+  </div>
 <% end %>
