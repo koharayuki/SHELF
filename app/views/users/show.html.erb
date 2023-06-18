@@ -4,7 +4,7 @@
       <div class="nav__left">
         <%= link_to image_tag("SHELF_set.png", class: :logo), root_path %>
       </div>
-      <div class="nav__right">
+      <div class="nav__right-login">
         <%= link_to "お気に入り",  '/users/:user_id/articles/:article_id/favorites', class: :nav__text %>
           <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: :nav__text %>
       </div>
@@ -17,7 +17,7 @@
 <div class="inner">
   <div class="user__wrapper">
       <h2 class="page-heading">
-        <%= "〜　#{current_user.nickname}　Mypage　〜"%>
+        <%= "〜　Mypage　〜"%>
       </h2>
       <div class="profile">
         <div class="profile-image">

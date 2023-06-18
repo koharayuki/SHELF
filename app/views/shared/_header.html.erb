@@ -6,9 +6,13 @@
       </div>
       <% if user_signed_in? %>
         <div class="nav__right">
-          <%= link_to "#{current_user.nickname}さん", user_path(current_user.id), class: :nav__text %>
-          <%= link_to "マイページ", user_path(current_user.id), class: :nav__text %>
-          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: :nav__text %>
+          <div class="nav__right-top">
+            <%= link_to "#{current_user.nickname}さん", user_path(current_user.id), class: :nav__text %>
+          </div>
+          <div class="nav__right-bottom">
+            <%= link_to "マイページ", user_path(current_user.id), class: :nav__text %>
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: :nav__text %>
+          </div>
         </div>
       <% else %>
         <div class="nav__right">
