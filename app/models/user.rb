@@ -37,6 +37,6 @@ class User < ApplicationRecord
 
 
   validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i }
-  validates :nickname, presence: true
+  validates :nickname, presence: true, length: { maximum: 12 }
   validates :image, presence: true
 end
