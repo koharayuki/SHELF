@@ -11,4 +11,18 @@
 @article.errors.full_messages
 
 
-# ---------???-------------
+# ---------favorite-------------
+
+@user = FactoryBot.create(:user)
+@article = FactoryBot.create(:article)
+@favorite = FactoryBot.build(:favorite, user_id: @user.id, article_id: @article.id)
+
+@favorite.errors.full_messages
+
+# ---------follow-------------
+
+@user = FactoryBot.create(:user)
+@another_user = FactoryBot.create(:user)
+@follow = FactoryBot.build(:follow, follower_id: @user.id, following_id: @another_user.id)
+
+@follow.errors.full_messages
