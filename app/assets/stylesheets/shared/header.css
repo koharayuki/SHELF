@@ -60,8 +60,21 @@ a {
   width: 200px;
 }
 .nav__right{
-  margin-top: 70px;
+padding-top: 40px;
 }
+
+.nav__right-top{
+  display: flex;
+  justify-content: center;
+  padding-bottom: 10px;
+}
+
+.nav__right-bottom{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
 .nav__btn{
   display: inline-block;
   padding: 0.4em 1.6em;
