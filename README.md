@@ -110,8 +110,7 @@ SHELF
 
 # URL
 
-http~
-
+https://shelf-wxvx.onrender.com/
 
 # テスト用アカウント
 
@@ -119,12 +118,12 @@ http~
 ・Basic認証パスワード : 2222
 
 <ユーザー①>
-・メールアドレス : sample@.com
+・メールアドレス : sample@com
 ・パスワード : sample1234
 ・ユーザー名 : sample
 
 <ユーザー②>
-・メールアドレス : test@.com
+・メールアドレス : test@com
 ・パスワード : test1234
 ・ユーザー名 : test
 
@@ -247,9 +246,9 @@ https://docs.google.com/spreadsheets/d/1CzZkEfCGx31r3TFuwZ5gOjEe30svUiGCDLPe79nX
 
 以下のコマンドを順に実行。
 
-% git clone 
+% git clone https://github.com/koharayuki/SHELF
 
-% cd 
+% cd SHELF
 
 % bundle install
 
