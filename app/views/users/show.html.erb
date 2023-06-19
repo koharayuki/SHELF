@@ -40,7 +40,7 @@
   <% if current_user != @user %>
     <div class="follow_page-btn">
       <% if @user.followed_by?(current_user) %>
-        <%=link_to "フォロー中", user_follows_path(@user.id),class: "follow-btn-now" , method: :delete %>
+        <%=link_to "フォロー解除する", user_follows_path(@user.id),class: "follow-btn-now" , method: :delete %>
       <% else %>
         <%=link_to "フォローする", user_follows_path(@user.id),class: "follow-btn" ,method: :post %>
       <% end %>
