@@ -55,8 +55,8 @@ ActiveRecord::Schema.define(version: 2023_06_15_054726) do
   end
 
   create_table "follows", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "following_id"
-    t.bigint "follower_id"
+    t.bigint "following_id", null: false
+    t.bigint "follower_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["follower_id"], name: "index_follows_on_follower_id"
